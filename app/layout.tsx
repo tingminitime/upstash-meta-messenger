@@ -1,6 +1,6 @@
-import './globals.css'
+import '@/styles/globals.css'
 import Header from '@/components/Header'
-import { ThemeProvider } from '@/contexts/ThemeProviders'
+// import { ThemeProvider } from '@/contexts/ThemeProviders'
 
 export default async function RootLayout({
   children,
@@ -11,11 +11,9 @@ export default async function RootLayout({
     <html lang="en">
       <head />
       <body className="dark:bg-slate-900">
-        <ThemeProvider>
-          {/* @ts-expect-error Server Component */}
-          <Header></Header>
-          {children}
-        </ThemeProvider>
+        {/* @ts-expect-error Server Component */}
+        <Header></Header>
+        {children}
       </body>
     </html>
   )

@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { Message } from '@/typing'
 import Image from 'next/image'
@@ -25,7 +26,7 @@ function MessageComponent({ message }: Props) {
         }`}
       >
         <Image
-          src={message.profilePic}
+          src={message.profilePic || ''}
           className="h-full w-full object-cover object-center"
           alt="Profile avatar"
           height={50}

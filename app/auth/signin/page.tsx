@@ -1,3 +1,4 @@
+import React from 'react'
 import { getProviders } from 'next-auth/react'
 import Image from 'next/image'
 import SignInComponent from './SignInComponent'
