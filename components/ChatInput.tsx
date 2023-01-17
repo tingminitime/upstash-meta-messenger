@@ -3,6 +3,7 @@ import { Message } from '@/typing'
 import React, { FormEvent, useState } from 'react'
 import useSWR from 'swr'
 import fetcher from '@/utils/fetchMessage'
+import scrollToBottom from '@/utils/scrollToBottom'
 import { Session } from 'next-auth'
 
 type Props = {
@@ -48,6 +49,8 @@ function ChatInput({ session }: Props) {
       optimisticData: [...messages!, message],
       rollbackOnError: true,
     })
+
+    scrollToBottom(document.documentElement)
   }
 
   return (

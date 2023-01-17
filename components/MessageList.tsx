@@ -2,8 +2,9 @@
 import React, { useEffect } from 'react'
 import useSWR from 'swr'
 import fetcher from '@/utils/fetchMessage'
-import { Message } from '@/typing'
+import scrollToBottom from '@/utils/scrollToBottom'
 import MessageComponent from './MessageComponent'
+import { Message } from '@/typing'
 import { clientPusher } from '@/pusher'
 
 type Props = {
@@ -38,6 +39,10 @@ function MessageList({ initialMessages }: Props) {
       channel.unsubscribe()
     }
   }, [messages, mutate, clientPusher])
+
+  useEffect(() => {
+    scrollToBottom(document.documentElement)
+  }, [initialMessages])
 
   return (
     <div className="mx-auto max-w-2xl space-y-5 px-5 pt-8 pb-32 xl:max-w-4xl">
