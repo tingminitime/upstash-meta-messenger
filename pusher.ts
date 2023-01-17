@@ -1,4 +1,6 @@
-import Pusher from 'pusher'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import Pusher from '@/pusher'
 import ClientPusher from 'pusher-js'
 
 export const serverPusher = new Pusher({
