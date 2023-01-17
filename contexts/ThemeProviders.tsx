@@ -3,7 +3,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react'
 import { ThemeContextType, ThemeProviderProps } from '@/typing'
 
 function getInitialTheme(): string {
-  if (window && window.localStorage) {
+  if (typeof window !== 'undefined' && window?.localStorage) {
     const themeFromLocalStorage = localStorage.getItem('theme')
     if (typeof themeFromLocalStorage === 'string') {
       return themeFromLocalStorage
