@@ -3,15 +3,11 @@ import { Message } from '@/typing'
 import Image from 'next/image'
 import { useSession } from 'next-auth/react'
 import TimeAgo from 'react-timeago'
-import TwString from 'react-timeago/lib/language-strings/zh-TW'
-import buildFormatter from 'react-timeago/lib/formatters/buildFormatter'
 
 type Props = {
   key: string
   message: Message
 }
-
-const formatter = buildFormatter(TwString)
 
 function MessageComponent({ message }: Props) {
   const { data: session } = useSession()
@@ -64,7 +60,6 @@ function MessageComponent({ message }: Props) {
             <TimeAgo
               date={new Date(message.created_at)}
               minPeriod={10}
-              formatter={formatter}
             ></TimeAgo>
           </p>
         </div>
