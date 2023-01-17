@@ -12,6 +12,7 @@ export default async function RootLayout({
       <head />
       <body className="dark:bg-slate-900">
         <ThemeProvider>
+          {/* @ts-expect-error Server Component */}
           <Header></Header>
           {children}
         </ThemeProvider>
