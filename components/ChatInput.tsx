@@ -13,8 +13,6 @@ function ChatInput({ session }: Props) {
   const [input, setInput] = useState('')
   const { data: messages, error, mutate } = useSWR('/api/getMessages', fetcher)
 
-  // console.log('[useSWR] messages:', messages)
-
   async function addMessage(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     if (!input || !session) return
@@ -55,7 +53,7 @@ function ChatInput({ session }: Props) {
   return (
     <form
       onSubmit={addMessage}
-      className="fixed bottom-0 z-50 flex w-full gap-x-2 border-t border-gray-100 bg-white px-10 py-5"
+      className="fixed bottom-0 z-50 flex w-full gap-x-2 border-t border-gray-100 bg-white px-10 py-5 dark:border-gray-500 dark:bg-slate-800"
     >
       <input
         type="text"

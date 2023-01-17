@@ -14,11 +14,9 @@ async function Home() {
   const messages: Message[] = data.messages
   const session = await unstable_getServerSession()
 
-  console.log('[Home]session:', session)
-
   return (
     <AuthProviders session={session}>
-      <main>
+      <main className="bg-white dark:bg-slate-900">
         <MessageList initialMessages={messages}></MessageList>
         <ChatInput session={session}></ChatInput>
       </main>
