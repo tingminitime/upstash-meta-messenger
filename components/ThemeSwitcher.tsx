@@ -1,10 +1,16 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTheme } from '@/contexts/ThemeProviders'
 import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md'
 
 function ThemeSwitcher() {
   const { theme, setTheme } = useTheme()
+  const [isSSR, setIsSSR] = useState(true)
+  console.log('theme', theme)
+
+  useEffect(() => {
+    setIsSSR(false)
+  }, [])
 
   return (
     <button
@@ -14,9 +20,10 @@ function ThemeSwitcher() {
         setTheme(theme === 'dark' ? 'light' : 'dark')
       }}
     >
-      {theme === 'light' ? (
+      {!isSSR && theme === 'light' && (
         <MdOutlineLightMode className="h-6 w-6 fill-slate-900"></MdOutlineLightMode>
-      ) : (
+      )}
+      {!isSSR && theme === 'dark' && (
         <MdOutlineDarkMode className="h-6 w-6 fill-slate-100"></MdOutlineDarkMode>
       )}
     </button>

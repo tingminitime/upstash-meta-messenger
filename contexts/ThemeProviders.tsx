@@ -55,5 +55,5 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
 
 export function useTheme() {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  return useContext(ThemeContext) || { theme: '', setTheme: () => {} }
+  return useContext(ThemeContext) || { theme: 'light', setTheme: () => {} }
 }
